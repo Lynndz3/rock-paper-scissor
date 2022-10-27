@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+    <h1>Rock, Paper, Scissors</h1>
+    <h2>Round 1</h2>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id ="scissors">Scissors</button>
+    
+    <script> 
+    const choice = ["rock", "paper", "scissors"];
+    const buttons = document.querySelectorAll('button');
+
+    let getComputerChoice = () => choice[Math.floor(Math.random() * choice.length)];
+    let computerSelection = getComputerChoice();
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () =>
+            playRound(button.id, computerSelection));
+    });
+
+
+    function playRound(playerSelection, computerSelection) {
+            // If player chose the same option as the computer, prompt again
+            let roundWinner = '';
+            console.log(playerSelection);
+            console.log(computerSelection);
+            // If player chose Rock...
+            if (playerSelection === "rock") {
+                //If Computer chose Scissors, Player wins
+                if (computerSelection === "scissors") {
+                    alert("Rock beats Scissors! You win!");
+                    roundWinner = "player";
+                }
+                //If Computer chose Paper, Computer wins
+                else if (computerSelection === "paper") {
+                    alert("Womp. Paper beats Rock. You lose.");
+                    roundWinner = "computer";
+                }
+            }
+
+            else if (playerSelection === "paper") {
+                //If Computer chose Rock, Player wins
+                if (computerSelection === "rock") {
+                    alert("Paper beats Rock! You win!");
+                    roundWinner = "player";
+
+                }
+                //If Computer chose scissors, Computer wins
+                else if (computerSelection === "scissors") {
+                    alert("Womp. Scissors beats Paper. You lose.");
+                    roundWinner = "computer";
+                }
+            }
+
+            else if (playerSelection === "scissors") {
+                //If Computer chose Paper, Player wins
+                if (computerSelection === "paper") {
+                    alert("Scissors beats Paper! You win!");
+                    roundWinner = "player";
+                }
+                //If Computer chose Rock, Computer wins
+                else if (computerSelection === "rock") {
+                    alert("Womp. Rock beats Scissors. You lose.");
+                    roundWinner = "computer";
+                }
+            }
+            return roundWinner;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        /*
+        //define array with the 3 options
+        const choice = ["rock", "paper", "scissors"];
+        
+        //Computer randomly chooses 1 of 3 options and stores in different variable
+        let getComputerChoice = () => choice[Math.floor(Math.random() * choice.length)];
+
+        
+
+        
+        function storeSelection() {
+            if (button.id === "rock") {
+                console.log("rock");
+                return "rock";
+            } 
+        };*/
+    </script>
+</body>
